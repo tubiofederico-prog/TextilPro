@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ShieldCheck, Sparkles } from "lucide-react";
+import { ShieldCheck, Sparkles, Smartphone } from "lucide-react";
 
 const ROLES = [
   { role: "Administrador", desc: "Acceso total al sistema", color: "bg-brand-500" },
@@ -55,7 +55,7 @@ export default function LoginPage() {
           <p className="mt-1 text-sm text-ink-500">Ingresá para acceder a la torre de control.</p>
 
           <form
-            onSubmit={(e) => { e.preventDefault(); router.push(role === "Operario" ? "/operarios" : "/dashboard"); }}
+            onSubmit={(e) => { e.preventDefault(); router.push(role === "Operario" ? "/movil/operario" : "/dashboard"); }}
             className="mt-8 space-y-4"
           >
             <div>
@@ -91,6 +91,9 @@ export default function LoginPage() {
             </button>
             <Link href="/dashboard" className="block text-center text-xs font-semibold text-ink-400 hover:text-brand-600">
               Entrar como invitado (demo) →
+            </Link>
+            <Link href="/movil" className="flex items-center justify-center gap-2 rounded-xl border border-ink-200 bg-white py-2.5 text-sm font-semibold text-ink-700 transition hover:border-brand-300 hover:text-brand-600">
+              <Smartphone size={16} /> Abrir app móvil de planta
             </Link>
           </form>
         </div>
